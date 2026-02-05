@@ -2,7 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import { Recipe } from '../models/recipe.model';
 import { HttpClient } from '@angular/common/http';
 import { of, forkJoin, map, switchMap, Observable } from 'rxjs';
-import { MOCK_RECIPES } from './mock-recipes';
+import { MOCK_RECIPES } from '../mock-data/mock-recipes';
 
 @Injectable({
   providedIn: 'root',
