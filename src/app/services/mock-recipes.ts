@@ -1,0 +1,101 @@
+import { Recipe } from '../models/recipe.model';
+
+export const MOCK_RECIPES: Recipe[] = [
+  {
+    id: '52814',
+    title: 'Osso Buco',
+    category: 'Seafood',
+    area: 'Italian',
+    thumbnail: 'https://www.themealdb.com/images/media/meals/1548768645.jpg',
+    instructions:
+      'Heat oil in a large pot over medium-high heat. Season beef with salt and pepper, then brown on all sides. Remove and set aside. Add onions, carrots, and celery, cook until soft. Add garlic and tomato paste, stir for 1 minute. Add wine and broth, then return beef to pot. Cover and simmer for 2 hours until meat is tender.',
+    ingredients: [
+      { ingredient: 'Beef Shank', measure: '4 pieces' },
+      { ingredient: 'Olive Oil', measure: '2 tbsp' },
+      { ingredient: 'Onion', measure: '1 large' },
+      { ingredient: 'Carrot', measure: '2 medium' },
+      { ingredient: 'Celery', measure: '2 stalks' },
+      { ingredient: 'Garlic', measure: '4 cloves' },
+      { ingredient: 'Tomato Paste', measure: '3 tbsp' },
+      { ingredient: 'White Wine', measure: '1 cup' },
+      { ingredient: 'Beef Broth', measure: '2 cups' },
+    ],
+  },
+  {
+    id: '52779',
+    title: 'Paella',
+    category: 'Seafood',
+    area: 'Spanish',
+    thumbnail: 'https://www.themealdb.com/images/media/meals/1520084413.jpg',
+    instructions:
+      'Heat oil in a large paella pan over medium heat. Sauté onions and garlic until fragrant. Add rice and stir to coat with oil. Pour in broth and bring to a boil. Add saffron and seafood, reduce heat and simmer until rice is tender and liquid is absorbed.',
+    ingredients: [
+      { ingredient: 'Rice', measure: '2 cups' },
+      { ingredient: 'Olive Oil', measure: '3 tbsp' },
+      { ingredient: 'Onion', measure: '1 large' },
+      { ingredient: 'Garlic', measure: '4 cloves' },
+      { ingredient: 'Saffron', measure: '1 pinch' },
+      { ingredient: 'Seafood Broth', measure: '4 cups' },
+      { ingredient: 'Shrimp', measure: '1 lb' },
+      { ingredient: 'Mussels', measure: '1 lb' },
+      { ingredient: 'Bell Pepper', measure: '1 red' },
+    ],
+  },
+  {
+    id: '52850',
+    title: 'Penne al Arrabbiata',
+    category: 'Pasta',
+    area: 'Italian',
+    thumbnail: 'https://www.themealdb.com/images/media/meals/58ffe3e3573375440e7c146f.jpg',
+    instructions:
+      'Cook pasta according to package directions. Meanwhile, heat olive oil in a pan and add dried red chili peppers. Add garlic and cook until fragrant. Add canned tomatoes and simmer for 15 minutes. Toss drained pasta with sauce and serve immediately with parmesan cheese.',
+    ingredients: [
+      { ingredient: 'Penne Pasta', measure: '1 lb' },
+      { ingredient: 'Olive Oil', measure: '3 tbsp' },
+      { ingredient: 'Red Chili Pepper', measure: '2' },
+      { ingredient: 'Garlic', measure: '6 cloves' },
+      { ingredient: 'Tomatoes', measure: '28 oz canned' },
+      { ingredient: 'Parmesan Cheese', measure: '1/2 cup grated' },
+      { ingredient: 'Salt', measure: 'to taste' },
+      { ingredient: 'Black Pepper', measure: 'to taste' },
+    ],
+  },
+  {
+    id: '52852',
+    title: 'Lasagna Bolognese',
+    category: 'Pasta',
+    area: 'Italian',
+    thumbnail: 'https://www.themealdb.com/images/media/meals/wxywrk1487340277.jpg',
+    instructions:
+      'Brown ground beef with onions and garlic. Add tomato sauce and simmer. Prepare béchamel sauce. Layer pasta sheets with meat sauce and béchamel. Bake at 375°F for 40 minutes until golden.',
+    ingredients: [
+      { ingredient: 'Ground Beef', measure: '2 lbs' },
+      { ingredient: 'Onion', measure: '1 large' },
+      { ingredient: 'Garlic', measure: '4 cloves' },
+      { ingredient: 'Tomato Sauce', measure: '32 oz' },
+      { ingredient: 'Lasagna Noodles', measure: '1 lb' },
+      { ingredient: 'Milk', measure: '2 cups' },
+      { ingredient: 'Butter', measure: '4 tbsp' },
+      { ingredient: 'Flour', measure: '3 tbsp' },
+      { ingredient: 'Mozzarella Cheese', measure: '2 cups shredded' },
+    ],
+  },
+  {
+    id: '52854',
+    title: 'Risotto Milanese',
+    category: 'Rice',
+    area: 'Italian',
+    thumbnail: 'https://www.themealdb.com/images/media/meals/z0ag0l1527670726.jpg',
+    instructions:
+      'Heat broth in a separate pot. In another pan, sauté onions with butter. Add rice and stir until translucent. Add warm broth one ladle at a time, stirring constantly. Continue until rice is creamy and cooked through. Finish with saffron and parmesan.',
+    ingredients: [
+      { ingredient: 'Arborio Rice', measure: '1.5 cups' },
+      { ingredient: 'Vegetable Broth', measure: '4 cups' },
+      { ingredient: 'Onion', measure: '1 small' },
+      { ingredient: 'Butter', measure: '3 tbsp' },
+      { ingredient: 'White Wine', measure: '1/2 cup' },
+      { ingredient: 'Saffron', measure: '1 pinch' },
+      { ingredient: 'Parmesan Cheese', measure: '1/2 cup' },
+    ],
+  },
+];

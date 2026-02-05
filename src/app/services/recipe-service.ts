@@ -2,12 +2,14 @@ import { Injectable, signal } from '@angular/core';
 import { Recipe } from '../models/recipe.model';
 import { HttpClient } from '@angular/common/http';
 import { of, forkJoin, map, switchMap, Observable } from 'rxjs';
+import { MOCK_RECIPES } from './mock-recipes';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RecipeService {
   private apiBase = 'https://www.themealdb.com/api/json/v1/1';
+  private useMockData = true; // Set to false when backend is back up
 
   recipes = signal<Recipe[]>([]);
   loading = signal<boolean>(false);
@@ -17,6 +19,15 @@ export class RecipeService {
 
   fetchRecipes() {
     this.loading.set(true);
+
+    // Use mock data while backend is down
+    if (this.useMockData) {
+      setTimeout(() => {
+        this.recipes.set(MOCK_RECIPES);
+        this.loading.set(false);
+      }, 500); // Simulate network delay
+      return;
+    }
 
     this.http
       .get<any>(`${this.apiBase}/filter.php?a=Italian`)
