@@ -9,7 +9,7 @@ import { MOCK_RECIPES } from './mock-recipes';
 })
 export class RecipeService {
   private apiBase = 'https://www.themealdb.com/api/json/v1/1';
-  private useMockData = true; // Set to false when backend is back up
+  private useMockData = true;
 
   recipes = signal<Recipe[]>([]);
   loading = signal<boolean>(false);
@@ -20,12 +20,11 @@ export class RecipeService {
   fetchRecipes() {
     this.loading.set(true);
 
-    // Use mock data while backend is down
     if (this.useMockData) {
       setTimeout(() => {
         this.recipes.set(MOCK_RECIPES);
         this.loading.set(false);
-      }, 500); // Simulate network delay
+      }, 500);
       return;
     }
 
