@@ -1,4 +1,4 @@
-<section>
+<section class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
     @for (recipe of recipeService.recipes(); track recipe.id) {
         <!-- Add the card -->
         <app-recipe-card [recipe]="recipe" />

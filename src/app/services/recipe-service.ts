@@ -94,7 +94,7 @@ export class RecipeService {
       title: meal.strMeal,
       category: meal.strCategory,
       area: meal.strArea,
-      thumbnail: meal.strMealThumb,
+      thumbnail: `${meal.strMealThumb}`,
       instructions: meal.strInstructions,
       ingredients,
     };

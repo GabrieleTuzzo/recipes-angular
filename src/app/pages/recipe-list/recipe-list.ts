@@ -10,12 +10,7 @@ import { RecipeCard } from '../../shared/recipe-card/recipe-card';
   styleUrl: './recipe-list.css',
 })
 export class RecipeList {
-  categories = computed(() =>
-    this.recipeService
-      .recipes()
-      .map((r) => r.category)
-      .filter((v, i, a) => a.indexOf(v) === i),
-  );
+  categories = computed(() => this.recipeService.recipes().map((r) => r.category));
 
   constructor(public recipeService: RecipeService) {}
 }
