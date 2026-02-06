@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { Recipe } from '../models/recipe.model';
 import { HttpClient } from '@angular/common/http';
-import { of, forkJoin, map, switchMap, Observable } from 'rxjs';
+import { of, forkJoin, map, switchMap, Observable, Subscription } from 'rxjs';
 import { MOCK_RECIPES } from '../mock-data/mock-recipes';
 
 @Injectable({
@@ -10,6 +10,8 @@ import { MOCK_RECIPES } from '../mock-data/mock-recipes';
 export class RecipeService {
   private apiBase = 'https://www.themealdb.com/api/json/v1/1';
   private useMockData = true;
+  private subscription: Subscription | null = null;
+  private timeoutId: number | null = null;
 
   recipes = signal<Recipe[]>([]);
   loading = signal<boolean>(false);
@@ -18,17 +20,20 @@ export class RecipeService {
   constructor(private http: HttpClient) {}
 
   fetchRecipes() {
+    // Clean up previous subscription/timeout
+    this.cleanup();
+
     this.loading.set(true);
 
     if (this.useMockData) {
-      setTimeout(() => {
+      this.timeoutId = window.setTimeout(() => {
         this.recipes.set(MOCK_RECIPES);
         this.loading.set(false);
       }, 500);
       return;
     }
 
-    this.http
+    this.subscription = this.http
       .get<any>(`${this.apiBase}/filter.php?a=Italian`)
       .pipe(
         switchMap((res) => {
@@ -53,6 +58,21 @@ export class RecipeService {
           this.loading.set(false);
         },
       });
+  }
+
+  private cleanup() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+      this.subscription = null;
+    }
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+      this.timeoutId = null;
+    }
+  }
+
+  ngOnDestroy() {
+    this.cleanup();
   }
 
   private mapMeal(meal: any): Recipe {

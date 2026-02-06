@@ -1,4 +1,4 @@
-import { Component, effect } from '@angular/core';
+import { Component, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RecipeService } from '../../services/recipe-service';
 import { RecipeCard } from '../../shared/recipe-card/recipe-card';
@@ -10,9 +10,12 @@ import { RecipeCard } from '../../shared/recipe-card/recipe-card';
   styleUrl: './recipe-list.css',
 })
 export class RecipeList {
-  constructor(public recipeService: RecipeService) {
-    effect(() => {
-      console.log('Recipes updated:', this.recipeService.recipes());
-    });
-  }
+  categories = computed(() =>
+    this.recipeService
+      .recipes()
+      .map((r) => r.category)
+      .filter((v, i, a) => a.indexOf(v) === i),
+  );
+
+  constructor(public recipeService: RecipeService) {}
 }
