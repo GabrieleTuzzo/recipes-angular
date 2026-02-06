@@ -8,6 +8,5 @@ import { Recipe } from '../../models/recipe.model';
   styleUrl: './recipe-card.css',
 })
 export class RecipeCard {
-  // Input property to receive recipe data
   recipe = input.required<Recipe>();
 }

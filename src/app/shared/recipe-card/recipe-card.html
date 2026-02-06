@@ -1,8 +1,6 @@
 <div class="card bg-base-200 rounded-xl hover:cursor-pointer">
-  <figure class="w-full h-80 object-cover">
-    <img
-      [src]="recipe().thumbnail"
-      [alt]="recipe().title" />
+  <figure class="w-full h-80">
+    <img class="w-full h-full object-cover" [src]="recipe().thumbnail" [alt]="recipe().title" />
   </figure>
   <div class="card-body">
     <h2 class="card-title justify-center">{{ recipe().title }}</h2>

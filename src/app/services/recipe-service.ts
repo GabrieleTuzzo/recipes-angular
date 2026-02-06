@@ -29,7 +29,7 @@ export class RecipeService {
       this.timeoutId = window.setTimeout(() => {
         this.recipes.set(MOCK_RECIPES);
         this.loading.set(false);
-      }, 500);
+      }, 5000);
       return;
     }
 

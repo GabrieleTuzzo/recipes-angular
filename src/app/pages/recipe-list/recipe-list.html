@@ -1,6 +1,11 @@
-<section class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+@if (recipeService.loading()) {
+  <app-loader />
+} @else if (recipeService.recipes().length === 0) {
+  <p class="text-center text-gray-500">No recipes found.</p>
+} @else {
+  <section class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
     @for (recipe of recipeService.recipes(); track recipe.id) {
-        <!-- Add the card -->
-        <app-recipe-card [recipe]="recipe" />
+      <app-recipe-card [recipe]="recipe" />
     }
-</section>
+  </section>
+}
