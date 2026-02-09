@@ -3,6 +3,18 @@
     <img class="w-full h-full object-cover" [src]="recipe().thumbnail" [alt]="recipe().title" />
   </figure>
   <div class="card-body">
-    <h2 class="card-title justify-center">{{ recipe().title }}</h2>
+    <div class="flex justify-center gap-3">
+      <h2 class="card-title">{{ recipe().title }}</h2>
+      <button
+        class="button-ghost hover:cursor-pointer hover:bg-secondary/10 rounded-full p-2 text-3xl"
+        (click)="favoriteService.toggleFavorite(recipe().id); $event.stopPropagation()"
+      >
+        @if (favoriteService.isFavorite(recipe().id)) {
+          ♥
+        } @else {
+          ♡
+        }
+      </button>
+    </div>
   </div>
 </div>

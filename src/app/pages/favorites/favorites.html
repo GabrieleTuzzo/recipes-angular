@@ -1,1 +1,11 @@
-<p>favorites works!</p>
+@if (recipeService.loading()) {
+  <app-loader />
+} @else if (favoriteService.getFavorites().length === 0) {
+  <p class="text-center text-gray-500">No favorite recipes yet.</p>
+} @else {
+  <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+    @for (recipe of getFavoriteRecipes(); track recipe.id) {
+      <app-recipe-card [recipe]="recipe" />
+    }
+  </section>
+}

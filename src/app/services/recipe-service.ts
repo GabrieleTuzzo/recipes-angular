@@ -20,7 +20,6 @@ export class RecipeService {
   constructor(private http: HttpClient) {}
 
   fetchRecipes() {
-    // Clean up previous subscription/timeout
     this.cleanup();
 
     this.loading.set(true);
