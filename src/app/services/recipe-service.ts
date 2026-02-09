@@ -103,6 +103,23 @@ export class RecipeService {
     };
   }
 
+  addRecipe(newRecipe: Recipe) {
+    newRecipe.id = Date.now().toString();
+    this.recipes.set([...this.recipes(), newRecipe]);
+  }
+
+  editRecipe(updated: Recipe) {
+    this.recipes.set(
+      this.recipes().map((recipe) =>
+        recipe.id === updated.id ? { ...recipe, ...updated } : recipe,
+      ),
+    );
+  }
+
+  deleteRecipe(id: string) {
+    this.recipes.set(this.recipes().filter((r) => r.id !== id));
+  }
+
   getCategories() {
     let categories = new Set<string>();
     this.recipes().forEach((r) => categories.add(r.category));
