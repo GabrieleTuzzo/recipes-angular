@@ -3,9 +3,33 @@
 } @else if (recipeService.recipes().length === 0) {
   <p class="text-center text-gray-500">No recipes found.</p>
 } @else {
-  <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-    @for (recipe of recipeService.recipes(); track recipe.id) {
-      <app-recipe-card [recipe]="recipe" />
-    }
+  <section>
+    <div class="flex justify-between mb-4">
+      <h1 class="text-2xl font-bold text-center">Discover Recipes</h1>
+      <input
+        type="text"
+        (input)="searchTerm.set($event.target.value)"
+        placeholder="Search recipes..."
+        class="input input-bordered w-48"
+      />
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-2 mb-6">
+      @for (category of recipeService.getCategories(); track $index) {
+        <button
+          [class.btn-active]="selectedCategories().includes(category)"
+          (click)="toggleCategory(category)"
+          class="btn btn-outline"
+        >
+          {{ category }}
+        </button>
+      }
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+      @for (recipe of filteredRecipes(); track recipe.id) {
+        <app-recipe-card [recipe]="recipe" />
+      }
+    </div>
   </section>
 }

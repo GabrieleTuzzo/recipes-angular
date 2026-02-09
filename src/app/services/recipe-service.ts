@@ -102,4 +102,19 @@ export class RecipeService {
       ingredients,
     };
   }
+
+  getCategories() {
+    let categories = new Set<string>();
+    this.recipes().forEach((r) => categories.add(r.category));
+    return categories;
+  }
+
+  filterRecipes(categories: string[], searchTerm: string) {
+    return this.recipes().filter((recipe) => {
+      const matchesCategory = categories.length === 0 || categories.includes(recipe.category);
+      const matchesSearch =
+        searchTerm === '' || recipe.title.toLowerCase().includes(searchTerm.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
+  }
 }
