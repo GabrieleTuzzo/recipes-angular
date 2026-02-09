@@ -29,7 +29,7 @@ export class RecipeService {
       this.timeoutId = window.setTimeout(() => {
         this.recipes.set(MOCK_RECIPES);
         this.loading.set(false);
-      }, 5000);
+      }, 500);
       return;
     }
 
@@ -58,6 +58,10 @@ export class RecipeService {
           this.loading.set(false);
         },
       });
+  }
+
+  getRecipeById(id: string): Recipe | null {
+    return this.recipes().find((r) => r.id === id) || null;
   }
 
   private cleanup() {

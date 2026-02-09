@@ -1,12 +1,19 @@
-import { Component, input } from '@angular/core';
+import { Component, input, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Recipe } from '../../models/recipe.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-card',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './recipe-card.html',
   styleUrl: './recipe-card.css',
 })
 export class RecipeCard {
   recipe = input.required<Recipe>();
+  router = inject(Router);
+
+  navigateToRecipe() {
+    this.router.navigate(['/recipes', this.recipe().id]);
+  }
 }

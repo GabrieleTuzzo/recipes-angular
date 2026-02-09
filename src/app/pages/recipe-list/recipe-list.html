@@ -3,7 +3,7 @@
 } @else if (recipeService.recipes().length === 0) {
   <p class="text-center text-gray-500">No recipes found.</p>
 } @else {
-  <section class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+  <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-4">
     @for (recipe of recipeService.recipes(); track recipe.id) {
       <app-recipe-card [recipe]="recipe" />
     }
