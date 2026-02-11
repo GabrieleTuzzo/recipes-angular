@@ -8,7 +8,7 @@ import { MOCK_USERS } from '../mock-data/mock-users';
 export class UserService {
   private user: User | null = null;
 
-  login(email: string, password: string): boolean {
+  login({ email, password }: { email: string; password: string }): boolean {
     const found = MOCK_USERS.find((u) => u.email === email && u.password === password);
     if (found) {
       this.user = found;

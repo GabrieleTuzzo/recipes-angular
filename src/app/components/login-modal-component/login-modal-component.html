@@ -1,0 +1,40 @@
+<div
+  class="modal modal-bottom sm:modal-middle"
+  [class.modal-open]="loginState.isOpen()"
+  (click)="loginState.closeModal()"
+>
+  <div class="modal-box" (click)="$event.stopPropagation()">
+    <h3 class="font-bold text-lg">Login</h3>
+    <form #loginForm="ngForm" (ngSubmit)="handleLogin(loginForm)" class="flex flex-col gap-4 mt-4">
+      <input
+        type="email"
+        placeholder="Email"
+        name="email"
+        #email="ngModel"
+        ngModel
+        required
+        email
+        class="input input-bordered w-full"
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        name="password"
+        #password="ngModel"
+        ngModel
+        required
+        class="input input-bordered w-full"
+      />
+      @if (password.touched && email.touched && loginForm.invalid) {
+        <p class="text-red-500">Please fill in all required fields correctly.</p>
+      }
+      @if (error) {
+        <p class="text-red-500">{{ error }}</p>
+      }
+      <div class="flex gap-3 justify-end">
+        <button type="submit" class="btn btn-primary">Login</button>
+        <button class="btn btn-error" (click)="loginState.closeModal()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

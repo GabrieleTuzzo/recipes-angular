@@ -1,12 +1,18 @@
 <header>
-    <nav class="navbar bg-base-100 shadow-sm flex justify-between">
-        <div class="px-2 mx-2">
-
-            <span class="text-xl font-bold ">eRecipes</span>
-        </div>
-        <div class="flex gap-2 ">
-            <a class="btn btn-ghost hover:text-white" routerLink="recipes">Recipes</a>
-            <a class="btn btn-ghost hover:text-white" routerLink="favorites">Favorites</a>
-        </div>
-    </nav>
+  <nav class="navbar bg-base-100 shadow-sm flex justify-between">
+    <div class="px-2 mx-2">
+      <span class="text-xl font-bold">eRecipes</span>
+    </div>
+    <div class="flex gap-2">
+      <a class="btn btn-ghost hover:text-white" routerLink="recipes">Recipes</a>
+      <a class="btn btn-ghost hover:text-white" routerLink="favorites">Favorites</a>
+      @if (userService.getUser()) {
+        <button class="btn btn-primary hover:text-white" routerLink="profile">Profile</button>
+      } @else {
+        <button class="btn btn-primary hover:text-white" (click)="loginState.openModal()">
+          Login
+        </button>
+      }
+    </div>
+  </nav>
 </header>
