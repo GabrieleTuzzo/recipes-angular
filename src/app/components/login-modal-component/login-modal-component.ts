@@ -19,8 +19,8 @@ export class LoginModalComponent {
 
     if (this.userService.login(formData.value)) {
       this.loginState.closeModal();
-    } else {
       formData.reset();
+    } else {
       this.error = 'Invalid credentials';
     }
   }

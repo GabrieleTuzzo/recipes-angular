@@ -7,7 +7,10 @@
       <a class="btn btn-ghost hover:text-white" routerLink="recipes">Recipes</a>
       <a class="btn btn-ghost hover:text-white" routerLink="favorites">Favorites</a>
       @if (userService.getUser()) {
-        <button class="btn btn-primary hover:text-white" routerLink="profile">Profile</button>
+        <button class="btn btn-primary hover:text-white" routerLink="user">Profile</button>
+        <button class="btn btn-error hover:text-white" (click)="userService.logout()">
+          Logout
+        </button>
       } @else {
         <button class="btn btn-primary hover:text-white" (click)="loginState.openModal()">
           Login

@@ -1,0 +1,11 @@
+<div class="flex flex-col gap-2 p-4 shadow-sm border border-base-200 rounded">
+  <h1>Welcome, {{ user?.name }}!</h1>
+  <p>Email: {{ user?.email }}</p>
+  <p>Role: {{ user?.role }}</p>
+  <div class="flex justify-center gap-4">
+    @if (user?.role === 'admin') {
+      <button class="btn btn-primary" routerLink="/admin">Admin Panel</button>
+    }
+    <button class="btn btn-error" (click)="userService.logout()">Logout</button>
+  </div>
+</div>
