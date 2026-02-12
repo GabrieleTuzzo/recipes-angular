@@ -1,9 +1,9 @@
 <div class="card card-side bg-base-100 shadow-sm border border-base-200">
   <figure>
-    <img [src]="recipe?.thumbnail" [alt]="recipe?.title" />
+    <img [src]="recipe()?.thumbnail" [alt]="recipe()?.title" />
   </figure>
   <div class="card-body">
-    <h2 class="card-title">{{ recipe?.title }}</h2>
-    <p>{{ recipe?.instructions }}</p>
+    <h2 class="card-title">{{ recipe()?.title }}</h2>
+    <p>{{ recipe()?.instructions }}</p>
   </div>
 </div>
