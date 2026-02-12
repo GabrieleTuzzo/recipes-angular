@@ -16,12 +16,7 @@ export class FavoriteService {
       next = [...current, recipeId];
     }
 
-    this.userService.userFavorite.set(next);
-
-    const user = this.userService.getUser();
-    if (user) {
-      user.favorites = next;
-    }
+    this.userService.setFavorites(next);
   }
 
   isFavorite(recipeId: string): boolean {

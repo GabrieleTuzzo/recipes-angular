@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { UserService } from '../../services/user-service';
-import { LoginStateService } from '../../services/login-state-service';
 
 @Component({
   selector: 'app-header-component',
@@ -11,5 +10,4 @@ import { LoginStateService } from '../../services/login-state-service';
 })
 export class HeaderComponent {
   userService = inject(UserService);
-  loginState = inject(LoginStateService);
 }

@@ -1,7 +1,7 @@
 <div
   class="modal modal-bottom sm:modal-middle"
-  [class.modal-open]="loginState.isOpen()"
-  (click)="loginState.closeModal()"
+  [class.modal-open]="isModalOpen()"
+  (click)="handleCloseModal()"
 >
   <div class="modal-box" (click)="$event.stopPropagation()">
     <h3 class="font-bold text-lg">Login</h3>
@@ -33,9 +33,7 @@
       }
       <div class="flex gap-3 justify-end">
         <button type="submit" class="btn btn-primary">Login</button>
-        <button type="button" class="btn btn-error" (click)="loginState.closeModal()">
-          Cancel
-        </button>
+        <button type="button" class="btn btn-error" (click)="handleCloseModal()">Cancel</button>
       </div>
     </form>
   </div>

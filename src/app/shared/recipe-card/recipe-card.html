@@ -9,10 +9,12 @@
         class="button-ghost hover:cursor-pointer hover:bg-secondary/10 rounded-full p-2 text-3xl"
         (click)="favoriteService.toggleFavorite(recipe().id); $event.stopPropagation()"
       >
-        @if (favoriteService.isFavorite(recipe().id)) {
-          ♥
-        } @else {
-          ♡
+        @if (userService.isLoggedIn()) {
+          @if (favoriteService.isFavorite(recipe().id)) {
+            ♥
+          } @else {
+            ♡
+          }
         }
       </button>
     </div>
