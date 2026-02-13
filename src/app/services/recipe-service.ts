@@ -9,7 +9,7 @@ import { MOCK_RECIPES } from '../mock-data/mock-recipes';
 })
 export class RecipeService {
   private apiBase = 'https://www.themealdb.com/api/json/v1/1';
-  private useMockData = true;
+  private useMockData = false;
   private subscription: Subscription | null = null;
   private timeoutId: number | null = null;
 
