@@ -12,7 +12,6 @@ export class UserService {
   router = inject(Router);
 
   constructor() {
-    // try to restore user from localStorage so navigation or reloads don't log out
     try {
       const raw = localStorage.getItem('app_user');
       if (raw) {
@@ -21,7 +20,7 @@ export class UserService {
         this.userFavorite.set(parsed.favorites || []);
       }
     } catch (e) {
-      // ignore parse errors
+      console.log('parse error');
     }
   }
 
